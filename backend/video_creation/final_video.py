@@ -76,7 +76,6 @@ def name_normalize(name: str) -> str:
 
     lang = settings.config["reddit"]["thread"]["post_lang"]
     if lang:
-        print_substep("Translating filename...")
         translated_name = translators.translate_text(name, translator="google", to_language=lang)
         return translated_name
     else:
@@ -121,9 +120,9 @@ def create_fancy_thumbnail(image, text, text_color, padding, wrap=35):
     )
     draw = ImageDraw.Draw(image)
 
-    username_font = ImageFont.truetype(os.path.join("fonts", "Roboto-Bold.ttf"), 30)
+    username_font = ImageFont.truetype(os.path.join("fonts", "Roboto-Bold.ttf"), 36)
     draw.text(
-        (205, 825),
+        (235, 825),
         settings.config["settings"]["channel_name"],
         font=username_font,
         fill=text_color,

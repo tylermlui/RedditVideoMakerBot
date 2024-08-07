@@ -15,7 +15,7 @@ from utils.console import print_step, print_substep
 from utils.voice import sanitize_text
 
 DEFAULT_MAX_LENGTH: int = (
-    50  # Video length variable, edit this on your own risk. It should work, but it's not supported
+    61  # Video length variable, edit this on your own risk. It should work, but it's not supported
 )
 
 
@@ -176,7 +176,6 @@ def process_text(text: str, clean: bool = True):
     lang = settings.config["reddit"]["thread"]["post_lang"]
     new_text = sanitize_text(text) if clean else text
     if lang:
-        print_substep("Translating Text...")
         translated_text = translators.translate_text(text, translator="google", to_language=lang)
         new_text = sanitize_text(translated_text)
     return new_text

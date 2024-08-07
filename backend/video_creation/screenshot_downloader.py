@@ -155,7 +155,6 @@ def get_screenshots_of_reddit_posts(reddit_object: dict, screenshot_num: int):
             ).click()  # Interest popup is showing, this code will close it
 
         if lang:
-            print_substep("Translating post...")
             texts_in_tl = translators.translate_text(
                 reddit_object["thread_title"],
                 to_language=lang,
